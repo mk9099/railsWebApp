@@ -1,0 +1,5 @@
+<% @foods.each do |food| %>
+    <h2><%= food.name %></h2>
+<% end %>
+
+<%= link_to "Add a meal or snack", new_food_path %>
