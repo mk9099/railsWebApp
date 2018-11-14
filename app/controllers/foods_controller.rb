@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-    before_action :find_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food 
+    before_action :get_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food 
 
     def index 
         @foods = Food.all.order("created_at DESC")
@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
     def new
         @food = Food.new 
     end 
-    
+        
     def create
         @food = Food.new(food_params)
         
@@ -21,8 +21,23 @@ class FoodsController < ApplicationController
         else
             render 'new'
         end
-         
     end
+        
+    def edit 
+    end
+        
+    def update
+        if @food.update(food_params)
+            redirect_to food_path(@food)
+        else
+            render 'edit'
+        end
+    end
+    
+    def destroy
+    end
+    
+
     
     private 
         
@@ -35,3 +50,4 @@ class FoodsController < ApplicationController
         end
 
 end
+
