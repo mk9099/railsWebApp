@@ -10,11 +10,11 @@ class FoodsController < ApplicationController
     end 
      
     def new
-        @food = Food.new 
+        @food = current_user.foods.build
     end 
         
     def create
-        @food = Food.new(food_params)
+        @food = current_user.foods.build(food_params)
         
         if @food.save 
             redirect_to root_path
