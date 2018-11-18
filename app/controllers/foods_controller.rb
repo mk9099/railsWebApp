@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
     end 
      
     def new
-        @food = current_user.foods.build
+        @food = current_user.foods.build #current users upload books
     end 
         
     def create
