@@ -1,3 +1,8 @@
+<h1><%= params[:category]%></h1>
+
+<%if @foods.count==0%>
+    <h1>Sorry but there has been no item added to this page.</h1>
+
 <% @foods.each do |food| %>
     <h2><%= link_to food.name, food_path(food) %></h2>
 <% end %>

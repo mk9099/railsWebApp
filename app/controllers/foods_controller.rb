@@ -2,11 +2,16 @@ class FoodsController < ApplicationController
     before_action :get_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food 
 
     def index 
-        @foods = Food.all.order("created_at DESC")
     
+        if params[:category].blank?
+            @foods = Food.all.order("created_at DESC")
+        else 
+            @c_id = Category.find_by(name: params[:category]).id 
+            @foods = Food.where(:category_id => @c_id).order("created_at DESC")
+        end
     end
     
-    def show 
+    def show
     end 
      
     def new
