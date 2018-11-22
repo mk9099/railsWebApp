@@ -2,8 +2,9 @@
 
     <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Chose a category")%>
     <%= f.input :name, label: "food name" %>
-    <%= f.input :description %> 
-    <%= f.input :ingrediants %> 
-    <%= f.button :submit %> 
-    
+    <%= f.input :description %>
+    <%= f.input :ingrediants %>
+    <%= f.file_field :food_image %>
+    <%= f.button :submit %>
+
 <% end %>
