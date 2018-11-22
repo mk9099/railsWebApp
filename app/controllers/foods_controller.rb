@@ -1,64 +1,63 @@
 class FoodsController < ApplicationController
-    before_action :get_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food 
+    before_action :get_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food
 
-    def index 
-    
+    def index
+
         if params[:category].blank?
             @foods = Food.all.order("created_at DESC")
-        else 
-            @c_id = Category.find_by(name: params[:category]).id 
+        else
+            @c_id = Category.find_by(name: params[:category]).id
             @foods = Food.where(:category_id => @c_id).order("created_at DESC")
         end
     end
-    
+
     def show
-    end 
-     
+    end
+
     def new
         @food = current_user.foods.build #current users upload books
         @categories = Category.all.map{|x| [x.name, x.id]}
-        
-    end 
-        
+
+    end
+
     def create
         @food = current_user.foods.build(food_params)
         @food.category_id = params[:category_id]
-        
-        if @food.save 
+
+        if @food.save
             redirect_to root_path
         else
             render 'new'
         end
     end
-        
-    def edit 
+
+    def edit
         @categories = Category.all.map{|x| [x.name, x.id]}
     end
-        
+
     def update
         @food.category_id = params[:category_id]
-        
+
         if @food.update(food_params)
             redirect_to food_path(@food)
         else
             render 'edit'
         end
     end
-    
+
     def destroy
         @food.destroy
             redirect_to root_path
     end
-    
-    private 
-        
+
+    private
+
         def get_food  # i will need to find the food method for other functions in the website or deleting them therefore this method is used to save time
-            @food = Food.find(params[:id]) 
+            @food = Food.find(params[:id])
         end
-        
+
         def food_params
             params.require(:food).permit(:name, :description, :ingrediants, :category_id)
         end
 
 end
-
