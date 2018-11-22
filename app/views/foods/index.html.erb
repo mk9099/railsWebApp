@@ -4,6 +4,8 @@
       <h1>Sorry but there has been no item added to this page.</h1>
   <% else %>
     <% @foods.each do |food| %>
-        <h2><%= link_to food.name, food_path(food) %></h2>
+        <a href="/foods/<%= food.id  %>">
+          <%= image_tag food.food_image.url(:food_index)%>
+        </a>
     <% end %>
 <% end %>
