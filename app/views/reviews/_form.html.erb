@@ -1,0 +1,7 @@
+<% simple_form_form([@food, @food.reviews.build]) do |t| %>
+
+    <%= f.input :rating %>
+    <%= f.input :comment %>
+    <%= f.button :submit %>
+
+<% end %>
