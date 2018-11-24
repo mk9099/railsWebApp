@@ -13,12 +13,12 @@
 
 </div>
 
-<%= link_to "Back", root_path %>
+<%= link_to "Back | ", root_path %>
 
 <% if user_signed_in? %>
 
     <% if current_user.id == @food.user_id %>
-        <%= link_to "Edit", edit_food_path(@food) %>
+        <%= link_to "Edit | ", edit_food_path(@food) %>
         <%= link_to "Remove item", food_path(@food), method: :delete, data: {confirm: "Are you sure you want to remove this item?"} %>
     <% end %>
 <% end %>
