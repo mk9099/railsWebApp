@@ -1,5 +1,13 @@
 <h1><%= params[:category]%></h1>
 
+<% if !user_signed_in? %>
+  <div class= "jumbotron">
+    <h1>Share your meals and get them reviewed!</h1>
+    <p><%= link_to "Create an account to upload your review", new_user_registration_path, class: "btn btn-primary btn-lg"%></p>
+  </div>
+<% end %>
+
+
   <%if @foods.count==0%>
       <h1>Sorry but there has been no item added to this page.</h1>
   <% else %>
