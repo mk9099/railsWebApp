@@ -28,6 +28,9 @@
     <% if current_user.id == @food.user_id %>
         <%= link_to "Edit | ", edit_food_path(@food) %>
         <%= link_to "Remove item |", food_path(@food), method: :delete, data: {confirm: "Are you sure you want to remove this item?"} %>
-        <%= link_to "| Rate | ", new_food_review_path(@food) %>
     <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "| Rate | ", new_food_review_path(@food) %>
 <% end %>
