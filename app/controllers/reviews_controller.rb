@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.food_id = @food.id
 
     if @review.save
-      redirect_to @review
+      redirect_to food_path(@food)
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
 
     def review_params
 
-      params.require(:reivew).permit(:rating, :comment)
+      params.require(:review).permit(:rating, :comment)
 
     end
 

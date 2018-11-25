@@ -1,7 +1,8 @@
-<% simple_form_for([@food, @food.reviews.build]) do |t| %> #gets the food and creates a review for it
 
-    <%= t.input :comment %>
-    <%= t.input :rating %>
-    <%= t.button :submit %>
+<%= simple_form_for([@food, @food.reviews.build]) do |f| %>
+
+    <%= f.input :comment %>
+    <%= f.input :rating %>
+    <%= f.button :submit %>
 
 <% end %>
