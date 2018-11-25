@@ -21,7 +21,6 @@ class ReviewsController < ApplicationController
 
 
 
-
   private
 
     def get_food

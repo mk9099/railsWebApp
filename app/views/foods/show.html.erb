@@ -1,10 +1,10 @@
 <div class = "row">
 
-  <div class = "col-md-4">
+  <div class = "col-md-5">
     <%= image_tag @food.food_image.url(:food_show), class: "book-show" =%>
   </div>
 
-  <div class = "col-md-11">
+  <div class = "col-md-13">
 
     <h1><%= @food.name %></h1>
     <h4><%= @food.description %></h4>
@@ -13,11 +13,13 @@
 
 </div>
 
-<% if user_signed_in? %>
+<div class="row">
+  <div class="col-md-4">
+    <%= render @food.reviews %>
+  </div>
 
-  <%= link_to "| Rate ", new_food_review_path(@food) %>
+</div>
 
-<% end %>
 
 <%= link_to "| Back | ", root_path %>
 
@@ -26,5 +28,6 @@
     <% if current_user.id == @food.user_id %>
         <%= link_to "Edit | ", edit_food_path(@food) %>
         <%= link_to "Remove item |", food_path(@food), method: :delete, data: {confirm: "Are you sure you want to remove this item?"} %>
+        <%= link_to "| Rate | ", new_food_review_path(@food) %>
     <% end %>
 <% end %>
