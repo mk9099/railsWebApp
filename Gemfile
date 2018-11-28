@@ -23,6 +23,8 @@ gem 'devise', '~> 4.5'
 gem 'rb-readline', '~> 0.5.5'
 #allows the use of images
 gem 'paperclip', '~> 6.1'
+#lets me use haml
+gem 'haml-rails', '~> 0.9.0'
 
 
 

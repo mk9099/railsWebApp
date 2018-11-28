@@ -22,12 +22,12 @@
 en:
   app_title: My notes
   app_description: A place where you can keep all your notes.
-  
-  home:
-    home:
+
+  index:
+    index:
         title: My notes
-        welcome: welcome to my notes site!
-        
-    contact: 
-        title: Contact Us 
-        contact_us: compelete the following form to contact us.
+        welcome: Welcome to my notes site!
+
+    contact:
+        title: Contact Us
+        contact_us: Compelete the following form to get in touch with us.

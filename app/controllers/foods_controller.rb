@@ -50,6 +50,9 @@ class FoodsController < ApplicationController
             redirect_to root_path
     end
 
+    def contact
+    end 
+
     private
 
         def get_food  # i will need to find the food method for other functions in the website or deleting them therefore this method is used to save time
