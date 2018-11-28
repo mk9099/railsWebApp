@@ -33,5 +33,17 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to "| Rate | ", new_food_review_path(@food) %>
+  <% if current_user.id != @food.user.id  %>
+    <%= link_to "| Rate | ", new_food_review_path(@food) %>
+  <% end %>
 <% end %>
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
