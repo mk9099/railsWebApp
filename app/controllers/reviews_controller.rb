@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :get_review, only: [:edit, :update, :destroy]
   before_action :get_food
 
+
   def new
     @review = Review.new
   end
@@ -30,7 +31,10 @@ class ReviewsController < ApplicationController
     end
   end
 
-
+  def destroy
+    @review.destroy
+    redirect_to food_path(@food)
+  end
 
   private
 
