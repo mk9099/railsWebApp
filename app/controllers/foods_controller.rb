@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
-    before_action :get_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food
 
+    before_action :authenticate_user!, only: [:new, :edit]
+    before_action :get_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food
     def index
 
         if params[:category].blank?
@@ -51,7 +52,7 @@ class FoodsController < ApplicationController
     end
 
     def contact
-    end 
+    end
 
     private
 
