@@ -20,14 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_title: My notes
-  app_description: A place where you can keep all your notes.
 
-  index:
-    index:
-        title: My notes
-        welcome: Welcome to my notes site!
+  foods:
 
     contact:
-        title: Contact Us
-        contact_us: Compelete the following form to get in touch with us.
+      title: "Contact me"
+      description: "Complete the form to contact us"
+      name: "Name:"
+      enter_name: "Enter your name"
+      email: "Email:"
+      enter_email: "Enter your email address"
+      telephone: "Telephone:"
+      enter_telephone: "Enter your phone number"
+      message: "Message:"
+      enter_message: "Enter your message"
+      Contact_button: "Contact Us"

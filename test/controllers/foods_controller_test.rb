@@ -5,7 +5,7 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
   # end
     test "should get contact" do
       get :contact
-      assert_response:succes
+      assert_response :succes
 
       assert_template layout: 'application'
 
