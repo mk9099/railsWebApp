@@ -4,10 +4,12 @@ one:
   name: MyString
   description: MyText
   ingrediants: MyString
+  user: one
+  category: two
 
 two:
   name: MyString
   description: MyText
   ingrediants: MyString
-  user:
-  category: 
+  user: two
+  category: two
