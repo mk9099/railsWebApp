@@ -1,7 +1,8 @@
-<h1>Edit your Review</h1>
+<h1>Edit Review</h1>
 
 
 <%= simple_form_for([@food, @review]) do |f| %>
+
   <%= f.input :rating %>
   <%= f.input :comment %>
   <%= f.button :submit %>

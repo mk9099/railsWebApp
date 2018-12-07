@@ -1,42 +1,42 @@
 <div class = "row">
 
-  <div class = "col-md-5">
+  <div class = "col-md-4">
     <%= image_tag @food.food_image.url(:food_show), class: "book-show" =%>
   </div>
 
-  <div class = "col-md-13">
-
-    <h1><%= @food.name %></h1>
-    <h2>Average rating</h2>
-    <h4><%= @food.description %></h4>
-    <p><%= @food.ingrediants %></p>
+  <div class = "col-md-8">
+      <h1><%= @food.name %></h1>
+      <h4><%= @food.description %></h4>
+      <p><%= @food.ingrediants %></p>
   </div>
 
 </div>
+
 
 <div class="row">
   <div class="col-md-4">
-    <%= render @food.reviews %>
+
+      <%= render @food.reviews %>
+
+      <div>
+        <%= link_to "| Rate | ", new_food_review_path(@food) %>
+      </div>
+
 
   </div>
 
 </div>
 
-
-<%= link_to "| Back | ", root_path %>
-
+  <div>
+    <%= link_to "| Back | ", root_path %>
+  </div>
+  
 <% if user_signed_in? %>
 
     <% if current_user.id == @food.user_id %>
         <%= link_to "Edit | ", edit_food_path(@food) %>
         <%= link_to "Remove item |", food_path(@food), method: :delete, data: {confirm: "Are you sure you want to remove this item?"} %>
     <% end %>
-<% end %>
-
-<% if user_signed_in? %>
-  <% if current_user.id != @food.user.id  %>
-    <%= link_to "| Rate | ", new_food_review_path(@food) %>
-  <% end %>
 <% end %>
 
 <script>

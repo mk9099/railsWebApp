@@ -13,6 +13,11 @@ class FoodsController < ApplicationController
     end
 
     def show
+      if @food.reviews.blank?
+        @average_review = 0
+      else
+        @average_review = @food.reviews.average(:rating).round(2)
+      end
     end
 
     def new
@@ -67,7 +72,7 @@ class FoodsController < ApplicationController
         flash[:notice] = I18n.t('home.request_contact.email_sent')
       end
 
-      redirect_to_root_path
+      redirect_to root_path
     end
 
     private

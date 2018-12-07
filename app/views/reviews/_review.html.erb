@@ -1,6 +1,4 @@
-<div class="review-rating" data-score="<%= review.rating %>">
-
-</div>
+<p><%= review.rating %></p
 <p><%= review.comment %></p
 
 
@@ -8,7 +6,8 @@
 
   <% if current_user.id == review.user_id %>
 
-    <%= link_to "| Edit", edit_food_review_path(review.food, review ) %>
+    <%= link_to "" %>
+    <%= link_to " | Edit", edit_food_review_path(review.food, review) %>
     <%= link_to " | Delete |", food_review_path(review.food, review), method: :delete, data: { confirm: "Are you sure you want to delete your review?"} %>
 
   <% end %>
