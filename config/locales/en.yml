@@ -26,6 +26,7 @@ en:
     contact:
       title: "Contact me"
       description: "Complete the form to contact us"
+
       name: "Name:"
       enter_name: Enter your name
       email: "Email:"
@@ -34,9 +35,8 @@ en:
       enter_telephone: Enter your phone number
       message: "Message:"
       enter_message: Enter your message
-      Contact_button: Contact Us
+      Contact_button: Send
 
     request_contact:
-
       no_email: You must supply an email address
       email_sent: Thank you. We will be in touch shortly.

@@ -13,10 +13,10 @@
   <% else %>
     <% @foods.each do |food| %>
       <div class = "col-md-4">
+        <h2><%= food.name %></h2>
         <a href="/foods/<%= food.id  %>">
           <%= image_tag food.food_image.url(:food_index), class: "food"%>
         </a>
-        <h2><%= food.description %></h2>
       </div>
     <% end %>
 <% end %>

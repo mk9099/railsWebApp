@@ -1,13 +1,18 @@
 <div class = "row">
 
   <div class = "col-md-5">
-    <%= image_tag @food.food_image.url(:food_show), class: "book-show" =%>
+    <%= image_tag @food.food_image.url(:food_show), class: "food-show" =%>
   </div>
 
-  <div class = "col-md-13">
-      <h1><%= @food.name %></h1>
-      <h4><%= @food.description %></h4>
-      <p><%= @food.ingrediants %></p>
+  <div class="food-info">
+    <div class = "col-md-13">
+        <h1 class = "food-name"><%= @food.name %></h1>
+        <h2 class="avg-rating">Average Rating</h2>
+			  <div class="average-review-rating" data-score=<%= @average_review %>></div>
+			  <span class="number-of-reviews">Based on <%= @food.reviews.count %> reviews</span>
+        <h4 class = food-description><%= @food.description %></h4>
+        <p class = food-ingrediants><%= @food.ingrediants %></p>
+    </div>
   </div>
 
 </div>
@@ -16,6 +21,7 @@
 <div class="row">
   <div class="col-md-4">
 
+      <h4>Reviews</h4>
       <%= render @food.reviews %>
 
       <div>
@@ -44,4 +50,14 @@
     },
     path: '/assets/'
   });
+</script>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
 </script>

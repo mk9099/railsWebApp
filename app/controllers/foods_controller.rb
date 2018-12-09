@@ -2,8 +2,17 @@ class FoodsController < ApplicationController
 
     before_action :authenticate_user!, only: [:new, :edit] #will authenitcate user for only the new and edit functions
     before_action :get_food, only: [:show, :edit, :update, :destroy] #these are the functions i need to find a specific type of food
-    def index #this is the home page of my website
 
+    rescue_from ActiveRecord::RecordNotFound, with: :noresult
+
+    def noresult
+      redirect_to errorpage_path
+    end
+
+    def errorpage
+    end
+
+    def index #this is the home page of my website
         if params[:category].blank?
             @foods = Food.all.order("created_at DESC")
         else
