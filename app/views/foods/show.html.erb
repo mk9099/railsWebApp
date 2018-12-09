@@ -11,12 +11,11 @@
 			  <div class="average-review-rating" data-score=<%= @average_review %>></div>
 			  <span class="number-of-reviews">Based on <%= @food.reviews.count %> reviews</span>
         <h4 class = food-description><%= @food.description %></h4>
-        <p class = food-ingrediants><%= @food.ingrediants %></p>
+        <p class = food-ingrediants> Ingredients: <%= @food.ingrediants %></p>
     </div>
   </div>
 
 </div>
-
 
 <div class="row">
   <div class="col-md-4">
@@ -37,7 +36,7 @@
 <% if user_signed_in? %>
 
     <% if current_user.id == @food.user_id %>
-        <%= link_to "Edit | ", edit_food_path(@food) %>
+        <%= link_to "| Edit item | ", edit_food_path(@food) %>
         <%= link_to "Remove item |", food_path(@food), method: :delete, data: {confirm: "Are you sure you want to remove this item?"} %>
     <% end %>
 <% end %>
