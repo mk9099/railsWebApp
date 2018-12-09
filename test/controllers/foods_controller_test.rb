@@ -24,7 +24,7 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
 
     test "should post request contact" do
       post request_contact_path,#if it doesnt work try _url not _path
-        name: "Mohammad",email: "khan_m@hotmail.co.uk",telephone: "07729704336",message: "Hello"
+        name: "Mohammad",email: "khan@me.co.uk",telephone: "1234567890",message: "Hello"
 
       assert_response :redirect
       assert_nil flash[:alert]

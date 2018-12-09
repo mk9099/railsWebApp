@@ -4,12 +4,12 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def new
-    @review = Review.new
+    @review = Review.new #declaring a new review
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.user_id = current_user.id
+    @review = Review.new(review_params) #reviews created using its needed parameters
+    @review.user_id = current_user.id 
     @review.food_id = @food.id
 
     if @review.save

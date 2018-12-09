@@ -14,15 +14,15 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
+@import "bootstrap-sprockets"; //required imports for bootstrap
 @import "bootstrap";
 
     .food {
-      height: 250px;
+      height: 250px; //size of imaes on the index page
       width: 350px;
     }
 
     .food.show{
-      height: 400px;
+      height: 400px; //size of images on the show page
       width: 300px;
     }
