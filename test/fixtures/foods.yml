@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
-  ingrediants: MyString
+  name: chicken curry
+  description: juicy
+  ingrediants: chicken
   user: one
-  category: two
+  category: one
 
 two:
   name: MyString

@@ -1,46 +1,37 @@
-<div class = "row">
+<div class = "food-info">
 
-  <div class = "col-md-5">
+  <div class = "col">
     <%= image_tag @food.food_image.url(:food_show), class: "food-show" =%>
   </div>
 
-  <div class="food-info">
-    <div class = "col-md-13">
+
+    <div class = "col-md-auto">
         <h1 class = "food-name"><%= @food.name %></h1>
         <h2 class="avg-rating">Average Rating</h2>
 			  <div class="average-review-rating" data-score=<%= @average_review %>></div>
 			  <span class="number-of-reviews">Based on <%= @food.reviews.count %> reviews</span>
         <h4 class = food-description><%= @food.description %></h4>
         <p class = food-ingrediants> Ingredients: <%= @food.ingrediants %></p>
-    </div>
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="col-md-4">
 
       <h4>Reviews</h4>
       <%= render @food.reviews %>
+      <%= link_to "| Rate | ", new_food_review_path(@food) %>
+      <%= link_to "| Back | ", root_path %>
 
       <div>
-        <%= link_to "| Rate | ", new_food_review_path(@food) %>
-        <%= link_to "| Back | ", root_path %>
+        <% if user_signed_in? %>
+
+            <% if current_user.id == @food.user_id %>
+                <%= link_to "| Edit item | ", edit_food_path(@food) %>
+                <%= link_to "Remove item |", food_path(@food), method: :delete, data: {confirm: "Are you sure you want to remove this item?"} %>
+            <% end %>
+        <% end %>
       </div>
 
+    </div>
 
-  </div>
 
 </div>
-
-<% if user_signed_in? %>
-
-    <% if current_user.id == @food.user_id %>
-        <%= link_to "| Edit item | ", edit_food_path(@food) %>
-        <%= link_to "Remove item |", food_path(@food), method: :delete, data: {confirm: "Are you sure you want to remove this item?"} %>
-    <% end %>
-<% end %>
-
 <script>
   $('.review-rating').raty({
     readOnly: true,
