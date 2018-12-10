@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  rating: 1
+  food: one
+  user: one
+  rating: 3
   comment: MyText
 
 two:
+  food: one
+  user: one
   rating: 1
   comment: MyText

@@ -33,7 +33,26 @@ class FoodTest < ActiveSupport::TestCase
   end
 
   test "#reviews" do
-    
+    assert_equal 2, @food.reviews.size
+  end
+
+  test "#reviews when deleted" do
+    assert_equal 2, @food.reviews.size
+    @review = reviews(:one)
+    @review.destroy
+    assert_equal 1, @food.reviews.size
+  end
+
+  test "#reviews when added" do
+      @user = users(:one)
+      assert_equal 2, @food.reviews.size
+      @review = Review.new
+      @review.comment = 'nice'
+      @review.rating = 3
+      @review.user = @user
+      @review.food = @food
+      @review.save
+      assert_equal 3, @food.reviews.size
   end
 
 end
