@@ -22,7 +22,7 @@ class FoodsController < ApplicationController
     end
 
     def show
-      if @food.reviews.blank? #so if there are mo reviews for an item the average will display 0
+      if @food.reviews.blank? #so if there are no reviews for an item the average will display 0
         @average_review = 0
       else
         @average_review = @food.reviews.average(:rating).round(2) #else it will calculate the average using the ratings and round it to 0.5 so it can display full and half stars
@@ -64,21 +64,21 @@ class FoodsController < ApplicationController
         @food.destroy
             redirect_to root_path #if the food is succesfully destroyed it will go to the rootpath
     end
-
+Ubuntu
     def contact
     end
 
-    def request_contact
+    def request_contactUbuntu
       name = params[:name]
       email = params[:email]              #setting the paramters for the users input of name, email etc.
       telephone = params[:telephone]
       message = params[:messgage]
 
       if email.blank?
-        flash[:alert] = I18n.t('home.request_contact.no_email') #if no email is inputed it will not send an email
+        flash[:alert] = I18n.t('foods.request_contact.no_email') #if no email is inputed it will not send an email
       else
         # send email
-        flash[:notice] = I18n.t('home.request_contact.email_sent')
+        flash[:notice] = I18n.t('foods.request_contact.email_sent')
       end
 
       redirect_to root_path #after these it will go to the root path
