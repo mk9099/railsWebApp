@@ -64,7 +64,7 @@ class FoodsController < ApplicationController
         @food.destroy
             redirect_to root_path #if the food is succesfully destroyed it will go to the rootpath
     end
-Ubuntu
+    
     def contact
     end
 
