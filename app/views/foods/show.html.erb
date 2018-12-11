@@ -15,8 +15,10 @@
 
       <h4>Reviews</h4>
       <%= render @food.reviews %>
-      <%= link_to "| Rate | ", new_food_review_path(@food) %>
-      <%= link_to "| Back | ", root_path %>
+      <div>
+        <%= link_to "| Back | ", root_path %>
+        <%= link_to "| Rate | ", new_food_review_path(@food) %>
+      </div>
 
       <div>
         <% if user_signed_in? %>

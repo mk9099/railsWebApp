@@ -1,10 +1,12 @@
-<%= simple_form_for @food do |f| %>
+<div class = "food_info">
+  <%= simple_form_for @food do |f| %>
 
-    <%= select_tag(:category_id, options_for_select(@categories))%>
-    <%= f.input :name, label: "food name" %>
-    <%= f.input :description %>
-    <%= f.input :ingrediants %>
-    <%= f.file_field :food_image %>
-    <%= f.button :submit %>
+      <%= select_tag(:category_id, options_for_select(@categories))%>
+      <%= f.input :name, label: "food name" %>
+      <%= f.input :description %>
+      <%= f.input :ingrediants %>
+      <%= f.file_field :food_image %>
+      <%= f.button :submit %>
 
-<% end %>
+  <% end %>
+</div>
